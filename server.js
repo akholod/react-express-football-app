@@ -4,9 +4,10 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
-let index = require('./src/routes/index');
-
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const config = require('./webpack.config');
 
 let app = express();
 const port = process.env.PORT || 3000;
@@ -23,7 +24,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'src', 'public')));
 
-app.use('/', index);
+let compiler = webpack(config);
+app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
+app.use(webpackHotMiddleware(compiler))
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/src/public/index.html')
+})
 
 app.listen(port, () => {
     console.log('App listen on port ' + port);
@@ -41,7 +48,7 @@ app.use(function(req, res, next) {
 
 // development error handler
 if (app.get('env') === 'development') {
-    app.use((err, req, res, next) => {
+    app.use((err, req, res) => {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
@@ -51,7 +58,7 @@ if (app.get('env') === 'development') {
 }
 
 // production error handler
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,

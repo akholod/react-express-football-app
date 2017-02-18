@@ -6,10 +6,11 @@ module.exports = {
     entry: [
         'webpack-hot-middleware/client',
         'babel-polyfill',
-        './src/index'
+        './src/index.js'
     ],
     output: {
-    path: path.join(__dirname, 'src', 'bundle'),
+    path: path.join(__dirname, 'src', 'public' ,'bundle'),
+    publicPath: '/src/public',
     filename: 'bundle.js'
   },
   module: {
@@ -38,6 +39,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     new webpack.optimize.DedupePlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false },
