@@ -9,7 +9,9 @@ export default class App extends Component {
         super(props);
         this.state = {
             leagueData: {
-                standing: []
+                standing: [],
+                leagueCaption: '',
+                matchday: 0
             }
         }
     }
@@ -22,8 +24,8 @@ export default class App extends Component {
     render() {
         return(
             <div>
-                <AppHead />
-                <ChooseSeasson />
+                <AppHead header={this.state.leagueData.leagueCaption}/>
+                <ChooseSeasson/>
                 <LeagueTable leagueData={this.state.leagueData}/>
             </div>
         )

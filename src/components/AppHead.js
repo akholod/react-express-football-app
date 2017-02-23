@@ -1,7 +1,8 @@
 import React from 'react';
 
-export default () => {
+export default (props) => {
+    console.log(props.header);
     return (
-        <h1>Premier League Table</h1>
+        <h1>{props.header} Table</h1>
     )
 }
