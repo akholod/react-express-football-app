@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
 @import "_global.scss";
 
 .app-header-component {
     @import 'components/_app-header.scss'
 }
 .choose-seasson-component {
-    @import 'components/_choose-seasson.scss'
+    @import 'components/_choose-seasson.scss';
+    text-align: center;
 }
 .league-table-component {
     @import 'components/_league-table.scss'

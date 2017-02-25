@@ -35,7 +35,10 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loaders: ['style', 'css', 'sass']
-            }
+            },
+             {
+                test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+                loader: require.resolve('file-loader')}
         ]
       },
   plugins: [

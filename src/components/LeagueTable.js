@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../public/style/main.scss';
 
 class LeagueTable extends Component {
-
     render() {
         console.log(this.props.leagueData);
         return(

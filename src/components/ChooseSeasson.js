@@ -7,9 +7,9 @@ export default class App extends Component {
     render() {
         return(
             <div className='choose-seasson-component'>
-                <button onClick={this.buttonClickHandler.bind(this, 'prev')}> prev </button>
-                <span> Choose League </span>
-                <button onClick={this.buttonClickHandler.bind(this, 'next')}> next </button>
+                <button className='choose-seasson-button' onClick={this.buttonClickHandler.bind(this, 'prev')}> prev </button>
+                <span className='choose-seasson-head'> Choose League </span>
+                <button className='choose-seasson-button'onClick={this.buttonClickHandler.bind(this, 'next')}> next </button>
             </div>
         )
     }
