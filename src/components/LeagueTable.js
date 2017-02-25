@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../public/style/main.scss';
 
 class LeagueTable extends Component {
 

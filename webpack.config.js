@@ -31,6 +31,10 @@ module.exports = {
                 ],
                 test: /\.js$/,
                 plugins: ['transform-runtime'],
+            },
+            {
+                test: /\.scss$/,
+                loaders: ['style', 'css', 'sass']
             }
         ]
       },
