@@ -1,6 +1,9 @@
 body {
   padding: 20px;
-  background-image: url('../img/football-bg.jpg');
+  background-image: url('../img/football-bg.jpg'),  ;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-size: cover;
   font-family: 'Lato', sans-serif;
 }
 #root {

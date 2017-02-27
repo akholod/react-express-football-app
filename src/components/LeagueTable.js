@@ -28,7 +28,13 @@ class LeagueTable extends Component {
                           <tr key={i}>
                             <td>{item.position}</td>
                             <td>{item.teamName}</td>
-                            <td><img className='league-table-img-logo' src={item.crestURI}/></td>
+                            <td>
+                                <img
+                                    className='league-table-img-logo'
+                                    src={(item.crestURI !== 'null') ? item.crestURI : './img/logo-placehold.png'}
+                                    alt='club logo'
+                                />
+                            </td>
                             <td>{item.playedGames}</td>
                             <td>{item.wins}</td>
                             <td>{item.draws}</td>
