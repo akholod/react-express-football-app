@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class App extends Component {
+export default class ChooseSeasson extends Component {
     buttonClickHandler = (arg) => {
         this.props.changeLeagueHandler(arg);
     }
