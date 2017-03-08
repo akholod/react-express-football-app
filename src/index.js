@@ -1,10 +1,9 @@
-'use strict';
-import 'babel-polyfill';
+
+import 'babel-polyfill'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import AppRoutes from './components/AppRoutes';
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-);
+window.onload = () => {
+  ReactDOM.render(<AppRoutes/>, document.getElementById('root'));
+};

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import '../public/style/main.scss';
 
 class LeagueTable extends Component {
@@ -26,23 +27,23 @@ class LeagueTable extends Component {
                     {this.props.leagueData.standing.map((item, i) => {
                       return (
                           <tr key={i}>
-                            <td>{item.position}</td>
-                            <td>{item.teamName}</td>
-                            <td>
-                                <img
-                                    className='league-table-img-logo'
-                                    src={(item.crestURI !== 'null') ? item.crestURI : './img/logo-placehold.png'}
-                                    alt='club logo'
-                                />
-                            </td>
-                            <td>{item.playedGames}</td>
-                            <td>{item.wins}</td>
-                            <td>{item.draws}</td>
-                            <td>{item.losses}</td>
-                            <td>{item.goals}</td>
-                            <td>{item.goalsAgainst}</td>
-                            <td>{item.goalDifference}</td>
-                            <td>{item.points}</td>
+                                <td>{item.position}</td>
+                                <td><Link to={'/team/'+ item.position}>{item.teamName}</Link></td>
+                                <td>
+                                    <img
+                                        className='league-table-img-logo'
+                                        src={(item.crestURI !== 'null') ? item.crestURI : './img/logo-placehold.png'}
+                                        alt='club logo'
+                                    />
+                                </td>
+                                <td>{item.playedGames}</td>
+                                <td>{item.wins}</td>
+                                <td>{item.draws}</td>
+                                <td>{item.losses}</td>
+                                <td>{item.goals}</td>
+                                <td>{item.goalsAgainst}</td>
+                                <td>{item.goalDifference}</td>
+                                <td>{item.points}</td>
                           </tr>
                         );
                     })}
