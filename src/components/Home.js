@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AppHead from './AppHead';
 import ChooseSeasson from './ChooseSeasson';
 import LeagueTable from './LeagueTable';
-import { getTable } from '../api';
+import { getTable, getTeams } from '../api';
 import { competitionsIDs } from '../data';
 
 export default class Home extends Component {
@@ -18,10 +18,23 @@ export default class Home extends Component {
             currentCompetitionId: 0
         }
     }
-
+    // .then((res) => {
+    //     this.setState({leagueData: res.body})
+    // })
     componentWillMount = () => {
-        getTable(this.state.competitionsIDs[this.state.currentCompetitionId]).then((res) => {
-            this.setState({leagueData: res.body})
+        Promise.all([
+            getTable(this.state.competitionsIDs[this.state.currentCompetitionId]),
+            getTeams(this.state.competitionsIDs[this.state.currentCompetitionId])
+        ]).then(([table, teams]) => {
+            table.body.standing = table.body.standing.map((item) => {
+                let teamNames = teams.body.teams.map(item => item.name)
+                let id = teamNames.indexOf(item.teamName)
+                if (id >= 0) {
+                    item.id = id
+                }
+                return item;
+            })
+            this.setState({leagueData: table.body})
         })
     }
 

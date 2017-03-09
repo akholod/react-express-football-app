@@ -3,15 +3,10 @@ import React, { Component } from 'react';
 // import Team from './Team';
 
 export default class App extends Component {
-
-
     render() {
         return(
             <div>
-                {/* <Home />
-                <Team /> */}
-
-{this.props.children}
+                {this.props.children}
             </div>
         )
     }
