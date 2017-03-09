@@ -8,7 +8,7 @@ import Home from './components/Home';
 const routes = (
   <Route path='/' component={App}>
     <IndexRoute component={Home}/>
-    <Route path='team/:position' component={Team}/>
+    <Route path='team/:compId/:teamName' component={Team}/>
   </Route>
 );
 

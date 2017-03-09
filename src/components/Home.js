@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AppHead from './AppHead';
 import ChooseSeasson from './ChooseSeasson';
 import LeagueTable from './LeagueTable';
-import { getTable, getTeams } from '../api';
+import { getTable } from '../api';
 import { competitionsIDs } from '../data';
 
 export default class Home extends Component {
@@ -18,23 +18,9 @@ export default class Home extends Component {
             currentCompetitionId: 0
         }
     }
-    // .then((res) => {
-    //     this.setState({leagueData: res.body})
-    // })
     componentWillMount = () => {
-        Promise.all([
-            getTable(this.state.competitionsIDs[this.state.currentCompetitionId]),
-            getTeams(this.state.competitionsIDs[this.state.currentCompetitionId])
-        ]).then(([table, teams]) => {
-            table.body.standing = table.body.standing.map((item) => {
-                let teamNames = teams.body.teams.map(item => item.name)
-                let id = teamNames.indexOf(item.teamName)
-                if (id >= 0) {
-                    item.id = id
-                }
-                return item;
-            })
-            this.setState({leagueData: table.body})
+        getTable(this.state.competitionsIDs[this.state.currentCompetitionId]).then((res) => {
+            this.setState({leagueData: res.body})
         })
     }
 
@@ -59,7 +45,7 @@ export default class Home extends Component {
             <div className='home-component'>
                 <AppHead header={this.state.leagueData.leagueCaption}/>
                 <ChooseSeasson changeLeagueHandler={this.changeLeague.bind(this)}/>
-                <LeagueTable leagueData={this.state.leagueData}/>
+                <LeagueTable leagueData={this.state.leagueData} competitionID={this.state.competitionsIDs[this.state.currentCompetitionId]}/>
             </div>
         )
     }

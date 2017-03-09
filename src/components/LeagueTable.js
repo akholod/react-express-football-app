@@ -4,7 +4,6 @@ import '../public/style/main.scss';
 
 class LeagueTable extends Component {
     render() {
-        console.log(this.props.leagueData);
         return(
             <div className='league-table-component'>
                 <table className='league-table'>
@@ -28,7 +27,7 @@ class LeagueTable extends Component {
                       return (
                           <tr key={i}>
                                 <td>{item.position}</td>
-                                <td><Link to={'/team/'+ item.position}>{item.teamName}</Link></td>
+                                <td><Link to={`/team/${this.props.competitionID}/${item.teamName}`}>{item.teamName}</Link></td>
                                 <td>
                                     <img
                                         className='league-table-img-logo'

@@ -10,7 +10,9 @@
     }
     tr {
         background-color: #fafafa;
-        cursor: pointer;
+        a {
+            cursor: pointer;
+        }
         &:nth-child(even) {
             background-color: #eee;
         }

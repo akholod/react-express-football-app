@@ -1,0 +1,31 @@
+div {
+    background-color: #eee;
+    padding: 25px;
+    text-align: center;
+    ul {
+        list-style: none;
+        padding: 0
+    }
+    li {
+        font-size: 1.3rem;
+    }
+    a {
+        display: block;
+    }
+    .team-logo {
+        max-width: 30%;
+    }
+
+    .team-statistic-block {
+        display: inline-block;
+    }
+    .total {
+        color: red;
+    }
+    .home {
+        color: blue;
+    }
+    .away {
+        color: #04961b;
+    }
+}
