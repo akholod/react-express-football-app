@@ -9,7 +9,7 @@ module.exports = {
         './src/index.js'
     ],
     output: {
-    path: path.join(__dirname, 'src', 'public' ,'bundle'),
+    path: path.join(__dirname, 'src', 'public'),
     publicPath: '/src/public/',
     filename: 'bundle.js'
   },
@@ -25,7 +25,10 @@ module.exports = {
     //     ],
         loaders: [
             {
-                loaders: ['react-hot', 'babel-loader'],
+                loaders: [
+                    'react-hot',
+                    'babel?presets[]=react,presets[]=es2015,presets[]=stage-0'
+                ],
                 include: [
                     path.resolve(__dirname, 'src'),
                 ],

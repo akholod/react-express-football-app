@@ -3,16 +3,17 @@ import { Link } from 'react-router';
 import { getTable } from '../api';
 
 export default class Team extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: {
-                away: {},
-                home: {}
-            }
+        constructor(props) {
+            super(props);
+            this.state = {
+                data: {
+                    away: {},
+                    home: {}
+                }
+        }
     }
-}
-    componentWillMount = () => {
+
+    componentWillMount() {
         getTable(this.props.params.compId).then((res) => {
             let [ team ] = res.body.standing.filter(item => (item.teamName === this.props.params.teamName))
             this.setState({data: team})

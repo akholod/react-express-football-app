@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export default class ChooseSeasson extends Component {
-    buttonClickHandler = (arg) => {
+    buttonClickHandler(arg) {
         this.props.changeLeagueHandler(arg);
     }
     render() {

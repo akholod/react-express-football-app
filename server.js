@@ -9,6 +9,8 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config');
 
+require('babel-polyfill');
+
 let app = express();
 const port = process.env.PORT || 3000;
 
@@ -28,24 +30,16 @@ let compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
 app.use(webpackHotMiddleware(compiler))
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/src/public/index.html')
-})
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src', 'public','index.html'));
+});
+
 
 app.listen(port, () => {
     console.log('App listen on port ' + port);
 });
 
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
-
 // error handlers
-
 // development error handler
 if (app.get('env') === 'development') {
     app.use((err, req, res) => {
