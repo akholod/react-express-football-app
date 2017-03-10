@@ -1,0 +1,44 @@
+
+@media screen and (max-width: 670px) {
+    body  {
+        padding: 0
+    }
+    #root {
+        font-size: 0.7rem;
+        .league-table-component .league-table td, .league-table-component .league-table th {
+            padding: 5px 1px;
+        }
+        .choose-seasson-head {
+            font-size: 1.2rem
+        }
+        h1 {
+            font-size: 1.6rem
+        }
+        button {
+            padding: 7px
+        }
+        td:nth-child(n + 5), th:nth-child(n + 5) {
+            display: none;
+        }
+        td:nth-child(n + 8), th:nth-child(n + 8){
+            display: table-cell;
+        }
+        .team-details-component {
+            .team-statistic-block {
+                display: block;
+            }
+            h3, a {
+                font-size: 1.3rem;
+                margin: 5px auto;
+            }
+        }
+    }
+}
+@media screen and (max-width: 491px) {
+    #root {
+        .league-table-component .league-table td, .league-table-component .league-table th {
+            padding: 5px 1px;
+            font-size: 1rem;
+        }
+    }
+}

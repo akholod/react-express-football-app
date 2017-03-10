@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 @import "_global.scss";
 
+
 .app-header-component {
     @import 'components/_app-header.scss'
 }
@@ -14,3 +15,5 @@
 .team-details-component {
     @import 'components/_team-details.scss'
 }
+
+@import "_media.scss";
