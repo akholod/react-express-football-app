@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import AppHead from './AppHead';
 import ChooseSeasson from './ChooseSeasson';
 import LeagueTable from './LeagueTable';
-import { getTable } from '../api';
-import { competitionsIDs } from '../data';
+import { getTable } from '../../api';
+import { competitionsIDs } from '../../data';
 
 export default class Home extends Component {
     constructor(props) {

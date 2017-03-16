@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { getTable } from '../api';
+import { getTable } from '../../api';
 
 export default class Team extends Component {
         constructor(props) {
